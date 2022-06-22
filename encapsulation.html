@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Encapsulation</h2>
+
+<script>
+//Encapsulation Technique 1: closure scope
+
+function createCircle(radius) {
+  return {
+      area: function() {
+          return radius * radius * Math.PI;
+    }
+  }
+};
+
+var circle1 = createCircle();
+
+//Write console.log here
+console.log("Area is" + circle1.area());
+console.log("Radius is" + circle1.radius); //This will Fail 
+//Encapsulation Technique 2: private variables
+
+function createCircle(radius) {
+    var diameter = radius * 2;
+
+    return {
+        area: function() {
+            return radius * radius * Math.PI;
+        },
+        circumference: function() {
+            return diameter * Math.PI;
+        }
+    }
+};
+
+var circle2 = createCircle();
+
+//Write console.log here
+console.log("Circumference is " + circle2.circumference()); 
+console.log("Diameter is" + circle2.diameter); //This will fail 
+
+
+</script>
+
+
+</body>
+</html>
